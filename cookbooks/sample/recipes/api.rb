@@ -11,6 +11,12 @@ bash "install-requirements" do
 	action :run
 end
 
+template "#{node[:base_folder]}/services/api/flaskapi_settings.cfg" do
+	source "flaskapi_settings.cfg.erb"
+	user "root"
+	group "root"
+end
+
 template "/etc/init/flaskapi.conf" do
 	source "flaskapi.conf.erb"
 	user "root"

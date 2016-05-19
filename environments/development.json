@@ -4,6 +4,14 @@
   "chef_type": "environment",
   "default_attributes": {
   	"base_folder": "/vagrant",
-  	"service_delay_sec": "10"
+  	"frontend_listen_host": "0.0.0.0",
+  	"frontend_listen_port": "5001",
+  	"frontend_debug": "True",
+  	"service_delay_sec": "10",
+  	"service_username": "twaits",
+  	"service_password": "Passphrase1",
+  	"api_host": "127.0.0.1",
+  	"api_port": "5000",
+  	"api_debug": "True"
   }
 }

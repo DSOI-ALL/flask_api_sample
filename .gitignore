@@ -1,3 +1,4 @@
 *.pyc
 .vagrant
 deploy.tar.gz
+*.cfg

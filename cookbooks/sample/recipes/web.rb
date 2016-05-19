@@ -11,6 +11,12 @@ bash "install-requirements" do
 	action :run
 end
 
+template "#{node[:base_folder]}/webapp/frontend_settings.cfg" do
+	source "frontend_settings.cfg.erb"
+	user "root"
+	group "root"
+end
+
 template "/etc/init/frontend.conf" do
 	source "frontend.conf.erb"
 	user "root"

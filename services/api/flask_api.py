@@ -4,11 +4,15 @@
 from flask import Flask, jsonify, abort, request, url_for, g
 from flask.ext.httpauth import HTTPBasicAuth
 from models import movies, users, User
+from ConfigParser import ConfigParser
+import os
 
 auth = HTTPBasicAuth()
 
-app = Flask(__name__)
+config = ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), './flaskapi_settings.cfg'))
 
+app = Flask(__name__)
 
 @app.route("/api/movies/", methods=['GET'])
 @auth.login_required
@@ -235,7 +239,8 @@ def convert_id_to_uri(movie):
 
 
 if __name__ == "__main__":
-    user = User("twaits", "Passphrase1")
+
+    user = User(config.get('auth', 'service_username'), config.get('auth', 'service_password'))
     user.save()
     print user.__dict__
-    app.run(debug=True)
+    app.run(debug=config.get('runtime', 'debug') == "True")

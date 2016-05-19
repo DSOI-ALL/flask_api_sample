@@ -1,0 +1,14 @@
+[auth]
+service_username=<%= node[:service_username] %>
+service_password=<%= node[:service_password] %>
+
+[network]
+listen_host=<%= node[:frontend_listen_host] %>
+listen_port=<%= node[:frontend_listen_port] %>
+
+[api]
+host=<%= node[:api_host] %>
+port=<%= node[:api_port] %>
+
+[runtime]
+debug=<%= node[:frontend_debug] %>
