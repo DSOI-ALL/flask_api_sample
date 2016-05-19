@@ -1,4 +1,0 @@
-flask
-flask-httpauth
-requests # - web only
-passlib # - api only

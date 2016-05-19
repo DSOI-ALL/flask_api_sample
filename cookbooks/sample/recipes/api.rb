@@ -3,7 +3,7 @@
 end
 
 bash "install-requirements" do
-	cwd "#{node[:base_folder]}"
+	cwd "#{node[:base_folder]}/services/api"
 	code <<-EOH
 		pip install -r requirements.txt
 	EOH
