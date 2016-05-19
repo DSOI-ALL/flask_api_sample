@@ -243,4 +243,4 @@ if __name__ == "__main__":
     user = User(config.get('auth', 'service_username'), config.get('auth', 'service_password'))
     user.save()
     print user.__dict__
-    app.run(debug=config.get('runtime', 'debug') == "True")
+    app.run(host=config.get('network', 'listen_host'), port=int(config.get('network', 'listen_port')), debug=config.get('runtime', 'debug') == "True")

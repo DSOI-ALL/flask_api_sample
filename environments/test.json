@@ -11,6 +11,7 @@
   	"service_username": "twaits",
   	"service_password": "Passphrase1",
   	"api_host": "127.0.0.1",
+    "api_listen_host": "0.0.0.0",
   	"api_port": "5000",
   	"api_debug": "False"
   }

@@ -2,5 +2,9 @@
 service_username=<%= node[:service_username] %>
 service_password=<%= node[:service_password] %>
 
+[network]
+listen_host=<%= node[:api_listen_host] %>
+listen_port=<%= node[:api_port] %>
+
 [runtime]
 debug=<%= node[:api_debug] %>
