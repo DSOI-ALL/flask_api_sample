@@ -10,3 +10,17 @@ bash "install-requirements" do
 	user "root"
 	action :run
 end
+
+template "/etc/init/frontend.conf" do
+	source "frontend.conf.erb"
+	user "root"
+	group "root"
+end
+
+bash "start-flaskapi" do
+	code <<-EOH
+		service frontend restart
+	EOH
+	user "root"
+	action :run
+end

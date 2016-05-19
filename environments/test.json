@@ -3,6 +3,7 @@
   "description": "Test environment",
   "chef_type": "environment",
   "default_attributes": {
-  	"base_folder": "/var/chef"
+  	"base_folder": "/var/chef",
+  	"service_delay_sec": "0"
   }
 }

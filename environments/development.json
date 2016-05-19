@@ -3,6 +3,7 @@
   "description": "Development environment",
   "chef_type": "environment",
   "default_attributes": {
-  	"base_folder": "/vagrant"
+  	"base_folder": "/vagrant",
+  	"service_delay_sec": "10"
   }
 }

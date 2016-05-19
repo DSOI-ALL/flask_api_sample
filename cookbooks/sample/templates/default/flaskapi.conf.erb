@@ -1,0 +1,12 @@
+description "Flask Movie API"
+author "Tim Palko"
+
+start on runlevel [2345]
+
+script 
+
+	/bin/sleep <%= node[:service_delay_sec] %>
+	cd <%= node[:base_folder] %>
+	python flask_api.py
+
+end script

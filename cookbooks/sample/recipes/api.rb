@@ -10,3 +10,17 @@ bash "install-requirements" do
 	user "root"
 	action :run
 end
+
+template "/etc/init/flaskapi.conf" do
+	source "flaskapi.conf.erb"
+	user "root"
+	group "root"
+end
+
+bash "start-flaskapi" do
+	code <<-EOH
+		service flaskapi restart
+	EOH
+	user "root"
+	action :run
+end
