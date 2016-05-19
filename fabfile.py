@@ -9,7 +9,8 @@ CHEF_VERSION = '12.10.24'
 CHEF_BINARY = '/usr/bin/chef-client'
 
 HOSTS = {
-    'test': ['fa-stage']
+    'test': ['fa-stage'],
+    'production': ['fa-db01', 'fa-web01']
 }
 
 env.user = 'tpalko'

@@ -1,0 +1,18 @@
+{
+  "name": "production",
+  "description": "Production environment",
+  "chef_type": "environment",
+  "default_attributes": {
+  	"base_folder": "/var/chef",
+  	"frontend_listen_host": "0.0.0.0",
+  	"frontend_listen_port": "5001",
+  	"frontend_debug": "False",
+  	"service_delay_sec": "0",
+  	"service_username": "twaits",
+  	"service_password": "muchbetterthanks",
+  	"api_host": "10.1.0.5",
+    "api_listen_host": "0.0.0.0",
+  	"api_port": "5001",
+  	"api_debug": "False"
+  }
+}

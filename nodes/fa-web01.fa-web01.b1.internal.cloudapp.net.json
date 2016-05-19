@@ -1,0 +1,6 @@
+{
+	"hostname": "fa-web01.fa-web01.b1.internal.cloudapp.net",
+	"run_list": [ 
+		"role[web]"
+	]
+}

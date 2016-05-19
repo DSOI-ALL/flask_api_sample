@@ -1,0 +1,6 @@
+{
+	"hostname": "fa-db01.fa-db01.b9.internal.cloudapp.net",
+	"run_list": [ 
+		"role[api]"
+	]
+}
