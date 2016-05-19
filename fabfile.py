@@ -20,7 +20,7 @@ def setup_hosts(environment):
 
 @runs_once
 def package():
-    local('tar --exclude *.pyc --exclude deploy.tar.gz --exclude .vagrant --exclude .git -czf deploy.tar.gz .')
+    local('tar --exclude \*.pyc --exclude deploy.tar.gz --exclude .vagrant --exclude .git -czf deploy.tar.gz .')
 
 def deploy(environment):
 
@@ -36,3 +36,7 @@ def deploy(environment):
 
     with cd('/var/chef'):
         sudo('%s --local-mode -c client.rb -E %s' %(CHEF_BINARY, environment))
+
+@runs_once
+def clean():
+    local('rm deploy.tar.gz')
