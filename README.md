@@ -3,11 +3,21 @@ simple example of using flask to generate an api
 
 ## Setup
 
-This project has a Vagrant-backed platform and standard setup. The Vagrant box is Ubuntu 14.04 and is provided by Hashicorp. Running `vagrant up` will stand up the VM and provision it with the dependencies required to run this application. The operator will need to `vagrant ssh` into the VM and start the services as described below in the section "How to Use".
+This project is used as a demonstration for Vagrant and Chef, and so there are several Git tags in the repository at particular checkpoints of the demonstration. 
 
-**This configuration has been tested successfully with Vagrant 1.8.1. Vagrant 1.7.3 will _not_ work with the specified `chef-zero` provisioner.**
+* v0.1.0 - the original state of the project 
+* v0.2.0 - Added Vagrant configuration with provisioning by chef_zero for a "development" environment 
+* v0.3.0 - Added a second environment "test"
+* v0.4.0 - Split out environment-specific application conifguration values into configuration files and deploying application services with Upstart scripts
+* v0.5.0 - Added a third environment "production"
+ 
+Feel free to play with this code and extract what you may find useful for your projects. Note, however that the "test" and "production" environments that are included here reference servers in Microsoft's Azure cloud environment, and so without credentials, you will not be able to run deployments to "test" and "production" environments. 
 
-Alternatively, the following Python modules may be installed by hand directly on your computer to meet the application's requirements for a local (bare metal) run.
+## Dependencies
+
+This configuration has been tested successfully with Vagrant 1.8.1 and VirtualBox 4.3.30. Vagrant 1.7.3 will _not_ work with the specified `chef_zero` provisioner, however it can be reconfigured to use `chef_solo` with Vagrant 1.7.3.
+
+The package dependencies for the project are documented as part of the IaC scripts (see `/cookbooks`). For reference, the following Python modules meet the application's requirements:
 
 [Flask](http://flask.pocoo.org/)
 :   `pip install Flask`
@@ -21,7 +31,9 @@ Alternatively, the following Python modules may be installed by hand directly on
 [passlib](https://pythonhosted.org/passlib/)
 :   `pip install passlib`
 
-## How to Use
+## How to Use This Application
+
+Code after the v0.4.0 tag will deploy the services using Upstart configuration and will start after boot. Code prior to this tag requires that the services are started manually.
 
 From a command line at the root of the project, run
 
@@ -35,7 +47,7 @@ To test the api service using the Front End flask app, open another terminal win
 
 This sample uses a simple list of objects as our data store. The principles can be easily transferred to using a backend of your choice.
 
-On the browser go to either `http://localhost:5001` (if running locally) or `http://localhost:8000` (if running in the VM) to view the front end portion.
+Code after the v0.2.0 tag can be executed within the development VM, and can be reached through `http://localhost:8000`, where port `8000` is forwarded to port `5001` within the VM. Code prior to this will simply run on your local machine and can be reached at `http://localhost:5001`. 
 
 You can run tests from the command line by running 
 
@@ -44,8 +56,6 @@ You can run tests from the command line by running
 ## Future Work
 
 This demo/example would work great with a simple mongo backend and ORM implementation in the code.
-
-Also, it would be nice to set up a [Vagrant]('https://www.vagrantup.com/') script for launching a VM with all the dependencies pre-installed so users could see it working without installing and configuring dependencies themselves.
 
 ## Acknowledgements
 
