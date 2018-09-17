@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision :chef_zero do |chef|
 
     chef.log_level = "warn"
-    chef.version = "12.10.58"
+    #chef.version = "12.10.58"
     
     chef.environment = "development"
     chef.roles_path = "./roles"
